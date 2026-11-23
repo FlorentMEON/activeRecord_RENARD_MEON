@@ -38,4 +38,12 @@ public class DBConnection{
         return connect;
     }
     
+    public void setNomDB(String nom){
+        this.dbName = nom;
+        try{
+            new DBConnection();
+        } catch (Exception e){
+            throw new IllegalArgumentException();
+        }
+    }
 }

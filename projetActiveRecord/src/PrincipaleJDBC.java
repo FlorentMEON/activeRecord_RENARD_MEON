@@ -113,6 +113,7 @@ public class PrincipaleJDBC {
             String drop = "DROP TABLE Personne";
             stmt = connect.createStatement();
             stmt.executeUpdate(drop);
+            connect.close();
 
         } catch (SQLException e) {
             System.out.println("*** ERREUR SQL ***");
