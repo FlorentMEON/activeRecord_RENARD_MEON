@@ -29,10 +29,10 @@ public class TestDBConnection {
         PreparedStatement prep1 = i.prepareStatement(SQLPrep);
         prep1.execute();
         ResultSet rs = prep1.getResultSet();
-        while (rs.next()) {
+        if (rs.next()) {
             nom = rs.getString("nom");
         }
-   
+
         assertEquals(nom,null);
     }
 }
