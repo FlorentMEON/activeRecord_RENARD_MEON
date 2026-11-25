@@ -5,15 +5,15 @@ import java.util.Properties;
 
 public class DBConnection{
     // variables de connection
-    String userName = "root";
-    String password = "";
-    String serverName = "127.0.0.1";
-    String portNumber = "3306";
+    static String userName = "root";
+    static String password = "";
+    static String serverName = "127.0.0.1";
+    static String portNumber = "3306";
     //        String portNumber = "8889"; // Port par défaut sur MAMP
-    String tableName = "personne";
+    static String tableName = "personne";
     
     // il faut une base nommee testPersonne !
-    String dbName = "testpersonne";
+    static String dbName = "testpersonne";
     
     private static Connection connect;
     
@@ -38,8 +38,8 @@ public class DBConnection{
         return connect;
     }
     
-    public void setNomDB(String nom){
-        this.dbName = nom;
+    public static void setNomDB(String nom){
+        dbName = nom;
         try{
             new DBConnection();
         } catch (Exception e){
