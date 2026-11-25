@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Personne{
@@ -86,6 +83,26 @@ public class Personne{
         }
         
         return personnes;
+    }
+    
+    public static void createTable() throws SQLException, ClassNotFoundException{
+        Connection connect = DBConnection.getConnection();
+        
+        // creation de la table Personne
+        String createString = "CREATE TABLE Personne ( "
+                + "ID INTEGER  AUTO_INCREMENT, " + "NOM varchar(40) NOT NULL, "
+                + "PRENOM varchar(40) NOT NULL, " + "PRIMARY KEY (ID))";
+        Statement stmt = connect.createStatement();
+        stmt.executeUpdate(createString);
+        
+    }
+    
+    public static void deleteTable() throws SQLException, ClassNotFoundException{
+        Connection connect = DBConnection.getConnection();
+        
+        String drop = "DROP TABLE Personne";
+        Statement stmt = connect.createStatement();
+        stmt.executeUpdate(drop);
     }
     
     public void setId(int id){
